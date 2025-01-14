@@ -4,16 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <input type="text" id="number1" />
-    <input type="text" id="operator" />
-    <input type="text" id="number2" />
-    <br />
-    <button type="submit" id="calcBtn">Aprēķināt</button>
-    <button type="submit" id="resetBtn">Notīrīt</button>
-    <br />
-    <p id="output"></p>
+    <div>
+      <input type="text" id="number1" />
+      <input type="text" id="operator" />
+      <input type="text" id="number2" />
+      <br />
+      <button type="submit" id="calcBtn">Aprēķināt</button>
+      <button type="submit" id="resetBtn">Notīrīt</button>
+      <br />
+      <br />
+      <br />
+      <br />
+      <p id="output"></p>
+    </div>
 
     <script>
       const num1 = document.getElementById("number1");
@@ -31,7 +37,11 @@
         let num2Value = parseFloat(num2.value);
         let operaValue = opera.value;
 
-        let result = calcFunc(num1Value, num2Value, operaValue);
+        let result = `rezultāts ir ${calcFunc(
+          num1Value,
+          num2Value,
+          operaValue
+        )}`;
 
         output.innerHTML = result;
 

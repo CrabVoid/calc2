@@ -1,0 +1,21 @@
+body {
+    background-color: lightblue;
+}
+
+div {
+    text-align
+    : center;
+}
+
+input {
+    width: 30%;
+}
+
+ul {
+    color: red;
+}
+
+p {
+    color: green;
+    scale: 3;
+}
