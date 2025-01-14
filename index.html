@@ -16,9 +16,9 @@
     <p id="output"></p>
 
     <script>
-      const num1Input = document.getElementById("number1");
-      const num2Input = document.getElementById("number2");
-      const operaInput = document.getElementById("operator");
+      const num1 = document.getElementById("number1");
+      const num2 = document.getElementById("number2");
+      const opera = document.getElementById("operator");
       const output = document.getElementById("output");
       const calcBttn = document.getElementById("calcBtn");
       const resetBttn = document.getElementById("resetBtn");
@@ -27,11 +27,43 @@
       resetBttn.addEventListener("click", clearNumbers);
 
       function processInput() {
-        console.log("click");
+        let num1Value = parseFloat(num1.value);
+        let num2Value = parseFloat(num2.value);
+        let operaValue = opera.value;
+
+        let result = calcFunc(num1Value, num2Value, operaValue);
+
+        output.innerHTML = result;
+      }
+
+      function calcFunc(n1, n2, opera) {
+        switch (opera) {
+          case "+":
+            return n1 + n2;
+            break;
+
+          case "-":
+            return n1 - n2;
+            break;
+
+          case "/":
+            return n1 / n2;
+            break;
+
+          case "*":
+            return n1 * n2;
+            break;
+
+          default:
+            break;
+        }
       }
 
       function clearNumbers() {
-        console.log("click");
+        num1.value = "";
+        num2.value = "";
+        opera.value = "";
+        output.innerHTML = "";
       }
     </script>
   </body>
