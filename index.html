@@ -36,7 +36,9 @@
         output.innerHTML = result;
 
         let errorsArray = inputConfirmation(num1Value, num2Value, operaValue);
-        if (errorsArray > 0) {
+        if (errorsArray.length > 0) {
+          output.innerHTML = formatErrors(errorsArray);
+          return;
         }
       }
 
@@ -66,11 +68,21 @@
       function inputConfirmation(n1, n2, opera) {
         let array = [];
 
-        if (n1 == isNaN) array.push("pirmais cipars kļūdains");
-        if (n2 == isNaN) array.push("otrais cipars kļūdains");
-        if ((!opera == "+", "-", "*", "/")) array.push("operātors ir kļūdains");
+        if (isNaN(n1)) array.push("pirmais cipars kļūdains");
+        if (isNaN(n2)) array.push("otrais cipars kļūdains");
+        // if ((!opera == "+", "-", "*", "/")) array.push("operātors ir kļūdains");
+        if (!["+", "-", "*", "/"].includes(opera))
+          array.push("operātors ir kļūdains");
 
         return array;
+      }
+
+      function formatErrors(errorsArray) {
+        let errorStrong = "";
+        for (let i = 0; i < errorsArray.length; i++) {
+          errorStrong += `<li>${errorsArray[i]}</li>`;
+        }
+        return `<ul>${errorStrong}</ul>`;
       }
 
       function clearNumbers() {
