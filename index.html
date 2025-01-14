@@ -34,6 +34,10 @@
         let result = calcFunc(num1Value, num2Value, operaValue);
 
         output.innerHTML = result;
+
+        let errorsArray = inputConfirmation(num1Value, num2Value, operaValue);
+        if (errorsArray > 0) {
+        }
       }
 
       function calcFunc(n1, n2, opera) {
@@ -57,6 +61,16 @@
           default:
             break;
         }
+      }
+
+      function inputConfirmation(n1, n2, opera) {
+        let array = [];
+
+        if (n1 == isNaN) array.push("pirmais cipars kļūdains");
+        if (n2 == isNaN) array.push("otrais cipars kļūdains");
+        if ((!opera == "+", "-", "*", "/")) array.push("operātors ir kļūdains");
+
+        return array;
       }
 
       function clearNumbers() {
